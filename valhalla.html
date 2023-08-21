@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>Valhalla</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Roboto Mono", monospace;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .main {
+            height: fit-content;
+            width: 100%;
+            position: relative;
+            margin-bottom: 10vh;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 60px;
+            text-transform: uppercase;
+            position: fixed;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+
+        .nav h2 {
+            display: flex;
+            align-items: center;
+            text-transform: none;
+            height: 60px;
+        }
+
+        .nav img {
+            height: 2.4em;
+            padding-top: 4px;
+        }
+
+        .navpt-2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .navpt-2 h4 {
+            padding: 0.6rem;
+            display: block;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #ee9f37;
+        }
+
+        .navpt-2 a {
+            text-decoration: none;
+            color: #ffa500;
+        }
+
+        .burger-menu i {
+            font-size: large;
+            font-weight: bold;
+            color: orange;
+        }
+
+        .landing-image {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: -100;
+        }
+
+        .landing-image img {
+            height: 100%;
+            position: fixed;
+            top: 0;
+            z-index: -100;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .down {
+            position: relative;
+            top: 90vh;
+        }
+
+        .down a {
+            display: flex;
+            justify-content: center;
+        }
+
+        #down {
+            position: absolute;
+            height: 60px;
+            width: 60px;
+            animation: animate ease-out 1s infinite;
+            z-index: 1;
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 1;
+                bottom: 40px;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 0;
+                bottom: -5px;
+            }
+        }
+
+
+
+        .explore {
+            display: flex;
+            justify-content: center;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            color: orange;
+            cursor: text;
+        }
+
+        .explore span {
+            padding: 3px 20px;
+            position: relative;
+            top: 75vh;
+            z-index: 1;
+            transition: 0.3s;
+        }
+
+        .explore span:hover {
+            border: 1px solid rgb(255, 165, 0);
+            box-shadow: 0px 0px 20px orange;
+            letter-spacing: 0.2em;
+        }
+
+        .content {
+            height: fit-content;
+            width: 100%;
+            /* background-color: rgba(0, 0, 0,0.6); */
+            background-color: rgb(17, 17, 17);
+            backdrop-filter: blur(40px);
+            position: relative;
+            top: 100vh;
+            z-index: -1;
+        }
+
+        .moto-content {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .motto {
+            display: flex;
+            width: 100%;
+            font-weight: 300;
+            justify-content: center;
+            margin: 5vh;
+            color: orange;
+            font-size: 4vw;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, rgb(24, 24, 24), rgb(255, 184, 52), rgb(24, 24, 24));
+            background-repeat: no-repeat;
+            background-size: 80%;
+            background-clip: border-box;
+            animation: animate2 linear 3s infinite;
+            -webkit-text-fill-color: rgba(255, 165, 0, 0.05);
+            -webkit-background-clip: text;
+        }
+
+        @keyframes animate2 {
+            0% {
+                background-position: -500%;
+            }
+
+            100% {
+                background-position: 500%;
+            }
+        }
+
+
+        .hole {
+
+            height: 60vh;
+            width: 90%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hole p {
+            color: orange;
+            font-size: 1.4em;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            padding: 2vw 10vw;
+        }
+
+        .hole video {
+            border: 4px double orange;
+            width: 70%;
+            height: 75%;
+            object-fit: cover;
+        }
+
+        .define {
+            display: flex;
+            justify-content: center;
+            text-align: justify;
+        }
+
+        .define p {
+            width: 70%;
+            margin-top: 30px;
+            color: #61481d;
+            font-size: 1em;
+        }
+
+        .vision p {
+            color: orange;
+            font-size: 2.3em;
+            letter-spacing: 0.3em;
+            display: flex;
+            justify-content: center;
+            text-transform: uppercase;
+            padding-top: 50px;
+            padding-bottom: 10px;
+        }
+
+        .vision h2 {
+            color: orange;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            letter-spacing: 0.15em;
+            text-decoration: overline 1px;
+        }
+
+        .visions div {
+            margin: 40px 0px;
+        }
+
+        .v1 img {
+            display: block;
+            margin: auto;
+            height: 50%;
+            width: 70%;
+        }
+
+        .v2 img {
+            display: block;
+            margin: auto;
+            height: 50%;
+            width: 70%;
+        }
+
+        .v3 img {
+            display: block;
+            margin: auto;
+            height: 100%;
+            width: 70%;
+        }
+
+        .v4 img {
+            display: block;
+            margin: auto;
+            height: 50%;
+            width: 70%;
+        }
+
+        .v5 img {
+            display: block;
+            margin: auto;
+            height: 100%;
+            width: 70%;
+        }
+
+        .v6 img {
+            display: block;
+            margin: auto;
+            height: 50%;
+            width: 70%;
+        }
+
+        .v7 img {
+            display: block;
+            margin: auto;
+            height: 100%;
+            width: 70%;
+        }
+
+        .v8 img {
+            display: block;
+            margin: auto;
+            height: 50%;
+            width: 70%;
+        }
+
+        .v9 img {
+            display: block;
+            margin: auto;
+            height: 50%;
+            width: 70%;
+        }
+
+        .footer {
+            height: 30vh;
+            width: 100%;
+            background-color: rgba(17, 17, 17, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: orange;
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+        }
+
+        .bottom {
+            padding: 1rem;
+            font-size: 1em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: #61481d;
+        }
+
+        .links {
+            padding: 2rem;
+            font-size: 1.4rem;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #a87b2c;
+        }
+
+        .links :hover {
+            color: #ee9f37;
+        }
+
+        .links i {
+            max-height: 10px;
+            max-width: 10px;
+            cursor: pointer;
+        }
+
+            
+
+        @media (max-width: 650px) {
+
+            .navpt-2 h4 {
+                display: none;
+            }
+
+            .nav h2 {
+                position: relative;
+                right: 12vw;
+            }
+
+            .burger-menu {
+                position: relative;
+                left: 12vw;
+
+            }
+
+
+            .visions div {
+                margin: 15px 0;
+            }
+
+            .visions img {
+                width: 88%;
+            }
+
+            .define p {
+                width: 85%;
+                font-size: 0.8em;
+                margin-top: 9px;
+            }
+
+            .hole video {
+                width: 85%;
+            }
+
+            .hole {
+                width: 100%;
+            }
+
+            .vision h2 {
+                font-size: 1rem;
+                width: 85%;
+                padding-top: 8vh;
+                margin: auto;
+            }
+
+            .vision p {
+                font-size: 1.3rem;
+            }
+
+            .bottom {
+                font-size: 0.8em;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav">
+            <h2><a href="index.html"><img src="images/logo1.png" alt=""></a></h2>
+            <div class="navpt-2">
+                <h4><a href="index.html">Home</a></h4>
+                <!-- <h4>missions</h4> -->
+                <h4><a href="tie-ups.html">tie-ups</a></h4>
+                <!-- <h4>concepts</h4> -->
+                <h4><a href="valhalla.html">valhalla</a></h4>
+                <h4><a href="index.html#badassnews">news</a></h4>
+            </div>
+            <div class="burger-menu">
+                <i class="ri-menu-3-line"></i>
+            </div>
+        </div>
+        <div class="landing-image">
+            <img src="images/saggA.jpg" alt="" />
+        </div>
+        <a href="#moto" class="explore"><span>Sagittarius A*</span></a>
+        <div class="down">
+            <a href="#moto"><img src="images/down.png" alt="" id="down" /></a>
+        </div>
+
+        <div class="content">
+
+
+
+            <div id="moto" class="moto-content">
+                <p class="motto">&lt;/BLACK HOLE EXPEDITION&gt;</p>
+            </div>
+
+
+
+            <div class="hole">
+                <p>What is a black hole ?</p>
+                <video autoplay loop muted>
+                    <source src="images/black hole.mp4" type="video/mp4" />
+            </div>
+
+            <div class="define">
+                <p>A black hole is where gravity pulls so much that even light can not get out. The gravity is so strong
+                    because matter has been squeezed into a tiny space. There are three types of black holes. Stellar
+                    black
+                    holes are made when a star is dying. When the center of a very big star falls in upon itself, or
+                    collapses. When this happens, it causes a supernova. A supernova is an exploding star that blasts
+                    part
+                    of the star into space. Some of the smallest black holes formed when the universe began and
+                    supermassive
+                    black holes were made at the same time as the galaxy they are in.</p>
+            </div>
+
+            <div class="vision">
+                <h2>To decipher the enigma of, What's inside a black hole ? <br><br>
+                    we are designing a spaceshuttle to warp through a black hole. <br><br>
+                    the concept:
+                </h2>
+                <p>valhalla sgr-a</p>
+            </div>
+            <section class="visions">
+                <div class="v1">
+                    <img src="images/Valhalla 1.jpg" alt="">
+                </div>
+                <div class="v2 ">
+                    <img src="images/Valhalla 2.jpg" alt="">
+                </div>
+                <div class="v3">
+                    <img src="images/Valhalla 3.gif" alt="">
+                </div>
+                <div class="v4">
+                    <img src="images/Valhalla 4.jpg" alt="">
+                </div>
+                <div class="v5">
+                    <img src="images/Valhalla 5.gif" alt="">
+                </div>
+                <div class="v6">
+                    <img src="images/Valhalla 6.jpg" alt="">
+                </div>
+                <div class="v7">
+                    <img src="images/Valhalla 7.gif" alt="">
+                </div>
+                <div class="v8">
+                    <img src="images/Valhalla 8.jpg" alt="">
+                </div>
+                <div class="v9">
+                    <img src="images/Valhalla 9.jpg" alt="">
+                </div>
+            </section>
+            <div class="footer">
+                <div class="footer-logo">
+                    <h2>AstroGalactic.</h2>
+                </div>
+                <div class="links">
+                    <a href="https://github.com/suryansh-f-r-i-d-a-y"><i class="ri-github-fill"></i></a>
+                    <a href="https://github.com/suryansh-f-r-i-d-a-y"><i class="ri-instagram-line"></i></a>
+                    <a href=""><i class="ri-linkedin-box-line"></i></a>
+                    <a href="https://twitter.com/Suryans96629948"><i class="ri-twitter-x-line"></i></a>
+                </div>
+                <div class="bottom">This project is made with <span style="color:#a87b2c;">&#10084;</span> by
+                    @blazingbucks | AkA Suryansh chauhan</div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

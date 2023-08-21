@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>tie_ups</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto Mono", monospace;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+
+      .main {
+        height: fit-content;
+        width: 100%;
+        position: relative;
+        margin-bottom: 10vh;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 60px;
+        text-transform: uppercase;
+        position: fixed;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+      .nav a {
+        text-decoration: none;
+        color: #ee9f37;
+      }
+
+      .nav h2 {
+        display: flex;
+        align-items: center;
+        text-transform: none;
+        height: 60px;
+      }
+      .nav img {
+        height: 2.4em;
+        padding-top: 4px;
+      }
+
+      .navpt-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navpt-2 h4 {
+        padding: 0.6rem;
+        display: block;
+      }
+
+      .navpt-2 a {
+        text-decoration: none;
+        color: #ffa500;
+      }
+
+      .burger-menu i {
+        font-size: large;
+        font-weight: bold;
+        color: orange;
+      }
+
+      .landing-image {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -100;
+      }
+
+      .landing-image img {
+        height: 100%;
+        position: fixed;
+        top: 0;
+        z-index: -100;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .down {
+        position: relative;
+        top: 90vh;
+      }
+
+      .down a {
+        display: flex;
+        justify-content: center;
+      }
+
+      #down {
+        position: absolute;
+        height: 60px;
+        width: 60px;
+        animation: animate ease-out 1s infinite;
+        z-index: 1;
+      }
+
+      @keyframes animate {
+        0% {
+          opacity: 1;
+          bottom: 40px;
+        }
+
+        50% {
+          opacity: 0.5;
+        }
+
+        100% {
+          opacity: 0;
+          bottom: -5px;
+        }
+      }
+
+      .explore {
+        display: flex;
+        justify-content: center;
+        font-size: 1.8em;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        color: orange;
+        cursor: text;
+      }
+
+      .explore span {
+        padding: 3px 20px;
+        position: relative;
+        top: 75vh;
+        z-index: 1;
+        transition: 0.3s;
+      }
+
+      .explore span:hover {
+        border: 1px solid rgb(255, 165, 0);
+        box-shadow: 0px 0px 20px orange;
+        letter-spacing: 0.2em;
+      }
+
+      .content {
+        height: fit-content;
+        width: 100%;
+        /* background-color: rgba(0, 0, 0,0.6); */
+        background-color: rgb(17, 17, 17);
+        backdrop-filter: blur(40px);
+        position: relative;
+        top: 100vh;
+        z-index: -1;
+      }
+
+      .moto-content {
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+
+      .motto {
+        display: flex;
+        width: 100%;
+        font-weight: 300;
+        justify-content: center;
+        margin: 5vh;
+        color: orange;
+        font-size: 4vw;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        background: linear-gradient(
+          90deg,
+          rgb(24, 24, 24),
+          rgb(255, 184, 52),
+          rgb(24, 24, 24)
+        );
+        background-repeat: no-repeat;
+        background-size: 80%;
+        background-clip: border-box;
+        animation: animate2 linear 3s infinite;
+        -webkit-text-fill-color: rgba(255, 165, 0, 0.05);
+        -webkit-background-clip: text;
+      }
+
+      @keyframes animate2 {
+        0% {
+          background-position: -500%;
+        }
+
+        100% {
+          background-position: 500%;
+        }
+      }
+
+      #logo1 {
+        height: 250px;
+        width: 250px;
+      }
+
+      .nasa p,
+      .spacex p,
+      .eso p,
+      .rover p {
+        color: orange;
+        font-size: 2em;
+        letter-spacing: 0.2em;
+        display: flex;
+        justify-content: center;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+      }
+
+      .nasa span,
+      .spacex span,
+      .eso span,
+      .rover span {
+        color: #61481d;
+        font-size: 1.1em;
+        display: flex;
+        justify-content: center;
+        text-transform: uppercase;
+        padding-bottom: 30px;
+        letter-spacing: 0.1em;
+        text-align: center;
+      }
+
+      .nasa img {
+        display: block;
+        margin: auto;
+        padding: 20px;
+        width: 75%;
+      }
+
+      .nasa p img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .spacex {
+        margin-top: 30px;
+      }
+
+      #logo2 {
+        height: 180px;
+        width: 320px;
+        display: block;
+        margin: auto;
+      }
+
+      .imgbox {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 70vw;
+        padding: 20px;
+        margin: auto;
+      }
+
+      .imgbox img {
+        width: 48%;
+      }
+
+      .imgbox2 {
+        width: 70%;
+        padding: 20px;
+
+        margin: auto;
+      }
+
+      .imgbox2 img {
+        width: 100%;
+        margin: auto;
+      }
+
+      .eso {
+        margin-top: 150px;
+      }
+
+      #logo3 {
+        width: 200px;
+        height: 250px;
+        padding-bottom: 15px;
+      }
+
+      .eso img {
+        display: block;
+        margin: auto;
+        padding: 20px;
+        width: 70%;
+        height: 65%;
+      }
+
+      .eso video {
+        display: block;
+        margin: auto;
+        padding: 20px;
+        width: 70%;
+        height: 65%;
+      }
+
+      #logo4 {
+        display: block;
+        margin: auto;
+        padding: 20px;
+        width: 40%;
+        height: 65%;
+        margin-top: 100px;
+      }
+
+      .rover img {
+        display: block;
+        margin: auto;
+        padding: 20px;
+        width: 70%;
+        height: 65%;
+      }
+
+      .footer {
+        height: 30vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: orange;
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+      }
+
+      .bottom {
+        padding: 1rem;
+        font-size: 1em;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        color: #61481d;
+      }
+
+      .links {
+        padding: 2rem;
+        font-size: 1.4rem;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .links a {
+        text-decoration: none;
+        color: #a87b2c;
+      }
+      .links :hover {
+        color: #ee9f37;
+      }
+      .links i {
+        max-height: 10px;
+        max-width: 10px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 650px) {
+        .navpt-2 h4 {
+          display: none;
+        }
+
+        .nav h2 {
+          position: relative;
+          right: 12vw;
+        }
+
+        .burger-menu {
+          position: relative;
+          left: 12vw;
+        }
+        .nasa img,
+        .eso img,
+        .eso video,
+        .rover img {
+          width: 100%;
+          padding: 15px 15px 0px 15px;
+          margin: auto;
+        }
+        .nasa span,
+        .spacex span,
+        .eso span,
+        .rover span {
+          width: 85%;
+          margin: auto;
+          font-size: 1em;
+        }
+        .nasa p,
+        .spacex p,
+        .eso p,
+        .rover p {
+          width: 85%;
+          margin: auto;
+          text-align: center;
+          font-size: 1.6em;
+        }
+
+        #logo1 {
+          width: 50%;
+          height: 30%;
+        }
+
+        #logo2 {
+          width: 60%;
+        }
+
+        #logo4 {
+          width: 80%;
+        }
+        #logo3 {
+          width: 40%;
+          height: 50%;
+        }
+        .imgbox {
+          width: 100vw;
+          padding: 15px 15px 0px 15px;
+        }
+
+        .imgbox2 {
+          width: 100%;
+          padding: 15px 15px 0px 15px;
+        }
+        .bottom {
+          font-size: 0.8em;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="nav">
+        <h2>
+          <a href="index.html"><img src="images/logo1.png" alt="" /></a>
+        </h2>
+        <div class="navpt-2">
+          <h4><a href="index.html">Home</a></h4>
+          <!-- <h4>missions</h4> -->
+          <h4><a href="tie-ups.html">tie-ups</a></h4>
+          <!-- <h4>concepts</h4> -->
+          <h4><a href="valhalla.html">valhalla</a></h4>
+          <h4><a href="index.html#badassnews">News</a></h4>
+        </div>
+        <div class="burger-menu">
+          <i class="ri-menu-3-line"></i>
+        </div>
+      </div>
+      <div class="landing-image">
+        <img src="images/bg 1.jpg" alt="" />
+      </div>
+      <a href="#moto" class="explore"><span>Explore</span></a>
+      <div class="down">
+        <a href="#moto"><img src="images/down.png" alt="" id="down" /></a>
+      </div>
+
+      <div class="content">
+        <div id="moto" class="moto-content">
+          <p class="motto">&lt;/Tie-up missions&gt;</p>
+        </div>
+
+        <section class="nasa">
+          <img id="logo1" src="images/nasa.png" alt="" />
+          <p>Exo-spacesuits with nasa</p>
+          <span
+            >$1.8 billion contract with nasa to develop special Exo-spacesuits
+            for the Artemis-III mission <br />
+            to be launched in 2029
+          </span>
+          <img src="images/nasa 1.jpg" alt="" />
+          <img src="images/nasa 2.jpg" alt="" />
+          <img src="images/nasa 3.jpg" alt="" />
+        </section>
+
+        <section class="spacex">
+          <img id="logo2" src="images/spacex.png" alt="" />
+          <p>Fo-2 spacesuits with spacex</p>
+          <span
+            >$1.2 billion contract with Spacex to develop special fo-2
+            spacesuits for the mars mission <br />
+            to be launched in 2032
+          </span>
+          <div class="imgbox">
+            <img class="img1" src="images/spacex 1.jpg" alt="" />
+            <img class="img2" src="images/spacex 2.jpg" alt="" />
+          </div>
+          <div class="imgbox2">
+            <img src="images/spacex 3.jpg" alt="" />
+          </div>
+        </section>
+
+        <section class="eso">
+          <img id="logo3" src="images/eso.jpg" alt="" />
+          <p>E-elt telescope with eso</p>
+          <span
+            >$2.3 billion contract with European southern observatory for the
+            construction of extremely <br />
+            large telescope in chile planned for 2027
+          </span>
+          <img src="images/eelt 1.jpg" alt="" />
+          <img src="images/eelt 2.jpg" alt="" />
+          <img src="images/eelt 3.jpg" alt="" />
+          <img src="images/eelt 4.jpg" alt="" />
+          <video class="video1" autoplay loop muted>
+            <source src="images/eelt 5.mp4" type="video/mp4" />
+          </video>
+        </section>
+
+        <img id="logo4" src="images/lh.png" alt="" />
+        <section class="rover">
+          <p>Marscruiser-hmv</p>
+          <span
+            >$3.1 billion contract with Lockheed Martin for manufacturing of a
+            vehicular mars rover <br />(marscruiser-hmv) till 2036
+          </span>
+          <img src="images/rover 1.jpg" alt="" />
+          <img src="images/rover 2.jpg" alt="" />
+          <img src="images/rover 3.jpg" alt="" />
+          <img src="images/rover 4.jpg" alt="" />
+          <img src="images/rover 5.jpg" alt="" />
+        </section>
+        <div class="footer">
+          <div class="footer-logo"><h2>AstroGalactic.</h2></div>
+          <div class="links">
+            <a href="https://github.com/suryansh-f-r-i-d-a-y"
+              ><i class="ri-github-fill"></i
+            ></a>
+            <a href="https://github.com/suryansh-f-r-i-d-a-y"
+              ><i class="ri-instagram-line"></i
+            ></a>
+            <a href=""><i class="ri-linkedin-box-line"></i></a>
+            <a href="https://twitter.com/Suryans96629948"
+              ><i class="ri-twitter-x-line"></i
+            ></a>
+          </div>
+          <div class="bottom">
+            This project is made with
+            <span style="color: #a87b2c">&#10084;</span> by @blazingbucks | AkA
+            Suryansh chauhan
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>AstroGalactic</title>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="nav">
+        <h2><a href="index.html"><img src="images/logo1.png" alt=""></a></h2>
+        <div class="navpt-2">
+          <h4><a href="index.html">Home</a></h4>
+          <!-- <h4>missions</h4> -->
+          <h4><a href="tie-ups.html">tie-ups</a></h4>
+          <!-- <h4>concepts</h4> -->
+          <h4><a href="valhalla.html">valhalla</a></h4>
+          <h4><a href="#badassnews">news</a></h4>
+        </div>
+        <div class="burger-menu">
+          <i class="ri-menu-3-line"></i>
+          <!-- <div class="burger-content">
+            <a href="">HOME</a>
+            <a href="">TIE-UPS</a>
+            <a href="">VALHALLA</a>
+            <a href="">NEWS</a>
+          </div> -->
+        </div>
+      </div>
+      <div class="vid">
+        <video id="bg" autoplay loop muted>
+          <source src="images/main site.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="line"></div>
+      <a href="#moto" class="explore"><span>Explore</span></a>
+      <div class="vl"></div>
+
+      <div class="content">
+        <div id="moto" class="moto-content">
+          <p class="motto">&lt;/Exploring &#8734; Infinity&gt;</p>
+        </div>
+
+        <!-- ---------------------------------------------------------------------- -->
+        <div class="parent-container">
+          <div class="child-container">
+            <img src="images/img1.jpg" alt="img not found" />
+          </div>
+          <div class="child-container">
+            <img src="images/img2.jpg" alt="img not found" />
+          </div>
+          <div class="child-container">
+            <img src="images/img3.jpg" alt="img not found" />
+          </div>
+          <div class="child-container">
+            <img src="images/img4.jpg" alt="img not found" />
+          </div>
+        </div>
+
+        <div class="wide-text">
+          <span class="head"
+            >13.8 billion years, from singularity to infinity</span
+          >
+          <p>
+            Great things happen when New Space opportunities meet up with an
+            organization dedicated to providing innovations and breakthroughs
+            with a turnkey methodology and technology to empower and accelerate
+            the space-based initiatives. <br />
+            Yes, we are AstroGalactiic!
+          </p>
+        </div>
+
+        <div class="boards">
+          <div class="board-ele">
+            <img src="images/board1.png" alt="img not found" />
+            <h3>END-TO-END<br />MISSION DESIGN</h3>
+            <p>
+              Full mission support - planning, technology, infrastructure, and
+              operations.
+            </p>
+          </div>
+          <div class="board-ele">
+            <img src="images/board2.png" alt="img not found" />
+            <h3>SATELLITE<br />TECHNOLOGY</h3>
+            <p>
+              Flight proven, high performance satellite platforms, high speed
+              communications systems and payload technology.
+            </p>
+          </div>
+          <div class="board-ele">
+            <img src="images/board3.png" alt="img not found" />
+            <h3>GROUND<br />OPERATIONS</h3>
+            <p>
+              Scalable mission control center and global ground station network
+              built to service multiple satellites and missions.
+            </p>
+          </div>
+        </div>
+
+        <div class="pday-heading">
+          <p class="heading">&lt;/Astro photo of day&gt;</p>
+        </div>
+
+        <div id="apod">
+          <div class="main">
+            <div class="imgbox"><img src="" alt="" /></div>
+            <div class="explain">
+              <span class="title"></span>
+              <p class="text"></p>
+            </div>
+          </div>
+          <div id="badassnews" class="down"></div>
+        </div>
+
+        <div  class="pday-heading">
+          <p  class="heading">&lt;/Astro News&gt;</p>
+        </div>
+
+        <div id="swen"></div>
+      </div>
+      <div class="footer">
+        <div class="footer-logo"><h2>AstroGalactic.</h2></div>
+        <div class="links">
+          <a href="https://github.com/suryansh-f-r-i-d-a-y"><i class="ri-github-fill"></i></a>
+          <a href="https://github.com/suryansh-f-r-i-d-a-y"><i class="ri-instagram-line"></i></a>
+          <a href=""><i class="ri-linkedin-box-line"></i></a>
+          <a href="https://twitter.com/Suryans96629948"><i class="ri-twitter-x-line"></i></a>
+        </div>
+        <div class="bottom">This project is made with <span style="color:#a87b2c;">&#10084;</span> by @blazingbucks | AkA Suryansh chauhan</div>
+      </div>
+    </div>
+    
+
+    <script>
+
+      const errorHandler = (error) =>{
+        const img = document.getElementById('img');
+        img.src = "images/placeholder.jpg";
+      }
+
+
+      sendApiRequest();
+
+      async function sendApiRequest() {
+        let response2 = await fetch(
+          `https://api.nasa.gov/planetary/apod?api_key=U32UwZCcgFqOZ44fT8cHzbvkzCsa0azVuZynaUAW`
+        );
+        console.log(response2);
+        let aiod = await response2.json();
+        console.log(aiod);
+        useApiData(aiod);
+      }
+
+      function useApiData(aiod) {
+        document.querySelector(".title").innerHTML += aiod.title;
+        document.querySelector(".text").innerHTML += aiod.explanation;
+        document.querySelector(
+          ".imgbox"
+        ).innerHTML += `<img src="${aiod.url}">`;
+        document.querySelector(
+          ".down"
+        ).innerHTML += `<a href="${aiod.hdurl}" target=_blank >Download Full Resolution</a>`;
+      }
+
+      let swen = document.getElementById("swen");
+      let newsHtml = "";
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", `https://api.spaceflightnewsapi.net/v3/articles`, true);
+
+      xhr.onload = function () {
+        let json = JSON.parse(this.responseText);
+        for (i = 0; i < json.length; i++) {
+          let news = json[i];
+          // console.log(news);
+        }
+        for (i = 0; i < json.length; i++) {
+          let news = `<section id="news${i}" class=news>
+                       <div id="newsimg${i}" class=newsimg><img src="${json[i].imageUrl}" onerror="errorHandler()" alt="image not found" ></div>
+                        <div id="newsmain${i}" class=newsmain>
+                         <div id="headline${i}" class=headline>${json[i].title}</div>
+                         <div id="summary${i}" class=summary>${json[i].summary}</div>
+                         <div id="more${i}" class=more><a href="${json[i].url}" target=_blank>Read more</a></div>
+                        </div>
+                  </section>`;
+
+          newsHtml += news;
+          swen.innerHTML += news;
+        }
+      };
+
+      xhr.send();
+    </script>
+
+    <!-- ++++++++++++++++++++++++++++++++++++++ -->
+  </body>
+</html>
